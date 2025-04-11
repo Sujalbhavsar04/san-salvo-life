@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ngb52mmi01b"]
+
+[ext_resource type="Script" path="res://system/game_camera.gd" id="1_yvpy8"]
+
+[node name="GameCamera" type="Camera2D"]
+position = Vector2(320, 240)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("1_yvpy8")
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="TopLeft" type="Marker2D" parent="Limits"]
+
+[node name="BottomRight" type="Marker2D" parent="Limits"]
+position = Vector2(640, 480)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

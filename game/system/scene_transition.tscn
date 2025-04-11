@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3cr8d5g1hj"]
+
+[ext_resource type="Script" path="res://system/scene_transition.gd" id="1_67di8"]
+
+[sub_resource type="Animation" id="Animation_lauem"]
+resource_name = "fade_in"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8nmoq"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpw2y"]
+_data = {
+"fade_in": SubResource("Animation_lauem"),
+"fade_out": SubResource("Animation_8nmoq")
+}
+
+[node name="SceneTransition" type="Node"]
+script = ExtResource("1_67di8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hpw2y")
+}

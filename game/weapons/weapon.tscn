@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://evgtl42atcgh"]
+
+[ext_resource type="Script" path="res://overlap/hitbox.gd" id="1_yxmeq"]
+[ext_resource type="Shader" path="res://shaders/white.gdshader" id="2_qgqn5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v525r"]
+resource_local_to_scene = true
+shader = ExtResource("2_qgqn5")
+shader_parameter/active = false
+
+[node name="Weapon" type="Area2D"]
+script = ExtResource("1_yxmeq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_v525r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

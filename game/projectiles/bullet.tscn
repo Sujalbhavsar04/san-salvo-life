@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c40dgfw18i63g"]
+
+[ext_resource type="Script" path="res://projectiles/bullet.gd" id="1_ytoja"]
+[ext_resource type="Texture2D" uid="uid://dgpkndypn022s" path="res://sprites/weapons/bullet.png" id="2_kk1bo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58rht"]
+atlas = ExtResource("2_kk1bo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgcvd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58rht")
+}],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjq8"]
+size = Vector2(4, 6)
+
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("animated_sprite_2D", "visible_on_screen_notitifier_2D")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ytoja")
+animated_sprite_2D = NodePath("AnimatedSprite2D")
+visible_on_screen_notitifier_2D = NodePath("VisibleOnScreenNotifier2D")
+SPEED = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hgcvd")
+animation = &"start"
+autoplay = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4.37114e-08)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pyjq8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

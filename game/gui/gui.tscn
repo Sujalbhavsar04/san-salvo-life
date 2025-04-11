@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://74t0hvckodrt"]
+
+[ext_resource type="PackedScene" uid="uid://c0pby3gg6oaod" path="res://gui/health_ui.tscn" id="1_5voox"]
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_aamfj"]
+[ext_resource type="PackedScene" uid="uid://b8x2uwavdd40m" path="res://gui/joystick.tscn" id="3_hw802"]
+[ext_resource type="Texture2D" uid="uid://dbrswob7n6r83" path="res://sprites/gui/joystick_knob.png" id="4_in3bi"]
+[ext_resource type="Texture2D" uid="uid://dgvngk33nv2oj" path="res://sprites/gui/exit.png" id="5_vc8se"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_aamfj")
+
+[node name="HealthUI" parent="." instance=ExtResource("1_5voox")]
+anchor_left = 0.0171875
+anchor_top = 0.0166667
+anchor_right = 0.267188
+anchor_bottom = 0.0791667
+
+[node name="MobileControls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Joystick" parent="MobileControls" instance=ExtResource("3_hw802")]
+position = Vector2(91, 392)
+
+[node name="FireGun" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2(519, 293)
+scale = Vector2(2.09375, 2.09375)
+texture_normal = ExtResource("4_in3bi")
+action = "attack"
+
+[node name="Exit" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2(578, 10)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_vc8se")
+action = "ui_cancel"

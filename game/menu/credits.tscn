@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgeyqg5jklfaw"]
+
+[ext_resource type="Script" path="res://menu/credits.gd" id="1_ufwdp"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufwdp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.20104
+anchor_right = 1.0
+anchor_bottom = 2.20104
+offset_top = 576.5
+offset_bottom = -576.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+[b]Game Credits[/b]
+
+[b]Team sprites:[/b] 
+Franchella Francesca 
+Menna Emanuele 
+D'Ottavio Luca 
+Burracchio Mattia 
+Fizzani Andrea Orlando 
+
+[b]Team musica ed effetti sonori:[/b]
+Potalivo Lorenzo
+Palma Max
+Scatozza Cristian
+Tatangelo Sebastiano
+
+[b]Team scrittori:[/b] 
+Di Nicola Simone
+Monte Samuele
+Turbato Thomas
+Monachetti Alessandro
+
+[b]Team di sviluppo:[/b]
+Bana Emiliano
+Pasquariello Alessio
+Menna Giulia
+
+[b]Tutti gli altri[/b]
+Alessandrini Giulia
+Baldassarre Giona Baruch
+Burracchio Alessandra
+Busilacchi Manuel
+Carbone Raffaele
+Cilli Alessandro Luca
+Consalvo Antonio
+D'Aulerio Christian
+D'Elia Giovanni
+Daniele Alessandro
+De Giorgi Lorenzo
+Del Bonifro Luca
+Della Penna Lorenzo
+Desiati Cristian
+Di Francesco Francesco
+Di Pasquale Francesco
+Di Pietro Fabiana
+Farchione Massimiliano
+Gallo Luca Pio
+Hyka Fabian
+Iacuzio Lorenzo
+Lamelza Pietro
+Langiano Francesco
+Luciani Daniel
+Panaccio Lorenzo
+Paparella Mattia
+Pietropaolo Lorenzo
+Rossano Elena Lucia
+Scafetta Ruben
+Stivaletta Andrea
+Tano Giulia
+Tonon Inacio Pereira
+Tricomi Christian Sergio
+Trivilini Luigi Pio
+Villani Andrea 
+Zurlino Samuele
+
+Un ringraziamento speciale al [b]Dott. Calogero Carlino[/b] e il  [b]Prof. Luca Forlizzi[/b] dell'[b]Università degli Studi dell'Aquila[/b] per aver creato il laboratorio LPS disponibile alle scuole \"Cosa si cela dietro ai pixel: programmare un RPG\"  che ha reso possibile tutto questo!
+
+E grazie a te per aver provato il nostro gioco!
+[/center]
+"
+fit_content = true

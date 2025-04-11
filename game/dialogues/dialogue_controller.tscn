@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2ms4qedgrmr1"]
+
+[ext_resource type="Script" path="res://dialogues/dialogue_controller.gd" id="1_hk6de"]
+[ext_resource type="Texture2D" uid="uid://be3sleh7v3oww" path="res://sprites/portraits/player.png" id="2_8ovs5"]
+[ext_resource type="Script" path="res://dialogues/dialogue_box.gd" id="2_xhbb2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dybw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="DialogueController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hk6de")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueBox" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.677083
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("2_xhbb2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="DialogueBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6dybw")
+
+[node name="Timer" type="Timer" parent="DialogueBox"]
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Portrait" type="Sprite2D" parent="DialogueBox/MarginContainer"]
+position = Vector2(59, 61)
+scale = Vector2(2.84375, 2.84375)
+texture = ExtResource("2_8ovs5")
+
+[node name="Panel" type="Panel" parent="DialogueBox/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBox/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="DialogueBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "*
+"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Text"
+
+[node name="End" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "v"
+
+[connection signal="dialogue_finished" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_finished"]
+[connection signal="timeout" from="DialogueBox/Timer" to="DialogueBox" method="_on_timer_timeout"]

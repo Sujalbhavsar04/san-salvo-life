@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qm4pqo7fj67u"]
+
+[ext_resource type="Script" path="res://system/music_player.gd" id="1_mwpyx"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+script = ExtResource("1_mwpyx")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

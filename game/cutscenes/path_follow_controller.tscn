@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s08suqhjofp6"]
+
+[ext_resource type="Script" path="res://cutscenes/path_follow_controller.gd" id="1_t17kx"]
+
+[node name="PathFollowController" type="Node"]
+script = ExtResource("1_t17kx")
